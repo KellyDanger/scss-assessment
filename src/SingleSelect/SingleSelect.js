@@ -1,4 +1,5 @@
 import React, { useState, useEffect } from 'react';
+import ResponseModal from '../ResponseModal/ResponeModal';
 import './SingleSelect.scss';
 
 const SingleSelect = (props) => {
@@ -23,9 +24,15 @@ const SingleSelect = (props) => {
 
   return (
     <div className={`SingleSelect`}>
-      <div className={`questionRow`}>
-        <h1>{props.data.questionText}</h1>
-      </div>
+      {selectedOption ? (
+        <div className={`questionRow`}>
+          <h1> {props.data.questionText}</h1>
+        </div>
+      ) : (
+        <div className={`questionRow`}>
+          <h1>{props.data.questionText}</h1>
+        </div>
+      )}
       <div className={`break`}></div>
       <div className={`buttons`}>
         {selected === -1 &&
@@ -51,17 +58,21 @@ const SingleSelect = (props) => {
             selectedOption.correct ? 'correct' : 'incorrect'
           }`}
         >
-          <h1>
-            {selectedOption.correct
-              ? props.data.feedback.correct.header
-              : props.data.feedback.incorrect.header}
-          </h1>
-          <p>
-            {selectedOption.correct
-              ? props.data.feedback.correct.body
-              : props.data.feedback.incorrect.body}
-          </p>
-          <button onClick={props.onComplete}>OK</button>
+          <>
+            {selectedOption.correct ? (
+              <ResponseModal
+                header={props.data.feedback.correct.header}
+                body={props.data.feedback.correct.body}
+                onComplete={props.onComplete}
+              />
+            ) : (
+              <ResponseModal
+                header={props.data.feedback.incorrect.header}
+                body={props.data.feedback.incorrect.body}
+                onComplete={props.onComplete}
+              />
+            )}
+          </>
         </div>
       )}
     </div>

@@ -1,6 +1,6 @@
 //scss stub for singleselect
 html {
-  background-color: blue;
+  background-color: #331202;
   text-align: center;
 }
 .SingleSelect {
@@ -12,27 +12,26 @@ html {
   align-items: center;
   height: 300px;
   overflow: auto;
-  background-color: grey;
+  background-color: #03998d;
 }
 
 .questionRow {
   display: flex;
   width: 50%;
   justify-content: center;
-  background-color: green;
+  background-color: #c7c0bd63;
+  box-shadow: -1rem 1rem 1rem rgba(black, 0.2);
 }
 .break {
   width: 100%;
 }
 
-.buttons,
-.feedback,
-.correct,
-.incorrect {
+.buttons {
   display: flex;
   flex-direction: column;
   width: 50%;
-  background-color: purple;
+  background-color: #c7c0bd;
+  box-shadow: -1rem 1rem 1rem rgba(black, 0.2);
 }
 
 button {
@@ -41,8 +40,34 @@ button {
   margin-bottom: 10px;
   padding: 7px 40px 5px 40px;
   border-radius: 7 px;
+  background-color: transparent;
+  border: none;
+  font-size: larger;
+}
+.okBtn {
+  border: 1px solid #33120263;
+  border-radius: 7px;
 }
 
 button:hover {
-  background-color: black;
+  background-color: #33120263;
+  color: white;
+}
+
+#modal {
+  width: 300px;
+  background: white;
+  transition: 1.1s ease-out;
+  box-shadow: -2rem 2rem 2rem rgba(black, 0.2);
+  filter: blur(0);
+  transform: scale(1);
+  opacity: 1;
+  visibility: visible;
+  margin: auto;
+}
+
+.modalHeader {
+  border-bottom: 1px solid black;
+  background-color: #33120263;
+  margin-top: 0;
 }
