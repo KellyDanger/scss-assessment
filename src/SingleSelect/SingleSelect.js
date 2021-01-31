@@ -24,15 +24,9 @@ const SingleSelect = (props) => {
 
   return (
     <div className={`SingleSelect`}>
-      {selectedOption ? (
-        <div className={`questionRow`}>
-          <h1> {props.data.questionText}</h1>
-        </div>
-      ) : (
-        <div className={`questionRow`}>
-          <h1>{props.data.questionText}</h1>
-        </div>
-      )}
+      <div className={`questionRow`}>
+        <h1> {props.data.questionText}</h1>
+      </div>
       <div className={`break`}></div>
       <div className={`buttons`}>
         {selected === -1 &&

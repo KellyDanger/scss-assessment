@@ -2,7 +2,7 @@
   "segments": [
     {
       "type": "single-select",
-      "questionText": "What's 2 times 3?",
+      "questionText": "What is 2 times 3?",
       "feedback": {
         "correct": {
           "header": "Nice Job.",
