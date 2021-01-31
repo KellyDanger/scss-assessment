@@ -26,7 +26,9 @@ html {
 }
 
 .buttons,
-.feedback .correct .incorrect {
+.feedback,
+.correct,
+.incorrect {
   display: flex;
   flex-direction: column;
   width: 50%;
@@ -39,4 +41,8 @@ button {
   margin-bottom: 10px;
   padding: 7px 40px 5px 40px;
   border-radius: 7 px;
+}
+
+button:hover {
+  background-color: black;
 }

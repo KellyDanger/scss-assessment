@@ -31,13 +31,16 @@ const SingleSelect = (props) => {
         {selected === -1 &&
           props.data.options.map((option, optionIndex) => {
             return (
-              <button
-                onClick={() => {
-                  handleSelect(optionIndex);
-                }}
-              >
-                {option.text}
-              </button>
+              <div>
+                <label> {option.name} ) </label>
+                <button
+                  onClick={() => {
+                    handleSelect(optionIndex);
+                  }}
+                >
+                  {option.text}
+                </button>
+              </div>
             );
           })}
       </div>
