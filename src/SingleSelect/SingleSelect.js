@@ -31,7 +31,7 @@ const SingleSelect = (props) => {
         {selected === -1 &&
           props.data.options.map((option, optionIndex) => {
             return (
-              <div>
+              <div key={optionIndex}>
                 <label> {option.name} ) </label>
                 <button
                   onClick={() => {
