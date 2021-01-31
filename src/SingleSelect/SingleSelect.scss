@@ -1,16 +1,18 @@
 //scss stub for singleselect
-body {
+html {
   background-color: blue;
   text-align: center;
 }
 .SingleSelect {
   display: flex;
   flex-wrap: wrap;
+  padding-top: 200px;
+  padding-bottom: 200px;
   justify-content: center;
-
-  align-items: baseline;
+  align-items: center;
   height: 300px;
-  background-color: red;
+  overflow: auto;
+  background-color: grey;
 }
 
 .questionRow {
