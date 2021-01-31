@@ -1,5 +1,5 @@
-import React, { useState, useEffect } from 'react';
-import ResponseModal from '../ResponseModal/ResponeModal';
+import React, { useState } from 'react';
+import ResponseModal from '../ResponseModal/ResponseModal';
 import './SingleSelect.scss';
 
 const SingleSelect = (props) => {

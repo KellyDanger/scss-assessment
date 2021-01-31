@@ -1,4 +1,39 @@
 //scss stub for multiselect
-.MultiSelect{
-
+.MultiSelect {
+  display: flex;
+  flex-wrap: wrap;
+  padding-top: 200px;
+  padding-bottom: 200px;
+  justify-content: center;
+  align-items: center;
+  height: 300px;
+  overflow: auto;
+  background-color: #03998d;
+}
+.true {
+  border: 2px #03998d solid;
+  background-color: #03998d63;
+  border-radius: 7px;
+}
+.buttonsMulti {
+  display: flex;
+  flex-direction: column;
+  width: 50%;
+  background-color: #c7c0bd;
+  box-shadow: -1rem 1rem 1rem rgba(black, 0.2);
+}
+ul {
+  list-style: none;
+  display: flex;
+  flex-direction: column;
+  width: 50%;
+  background-color: #c7c0bd;
+  box-shadow: -1rem 1rem 1rem rgba(black, 0.2);
+  padding: 0;
+}
+li {
+  padding: 10px;
+  font-size: larger;
+  margin: 2px 2px 0px 2px;
+  border-bottom: 2px solid #03998d63;
 }
