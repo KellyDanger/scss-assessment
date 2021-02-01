@@ -4,7 +4,7 @@ import '../SingleSelect/SingleSelect.scss';
 class ResponseModal extends React.Component {
   render() {
     return (
-      <div className='modal' id='modal'>
+      <div id='modal'>
         <h1 className='modalHeader'>{this.props.header}</h1>
         <p className='modalBody'>{this.props.body}</p>
         <button onClick={this.props.onComplete} className='okBtn'>

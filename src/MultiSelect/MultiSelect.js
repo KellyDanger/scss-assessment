@@ -52,12 +52,14 @@ const MultiSelect = (props) => {
     if (option.correct && option.selected) {
       return (
         <tr>
+          <td>{option.name})</td>
           <td className={`correctSelected`}>{option.text}</td> <td>✅</td>
         </tr>
       );
     } else if (option.correct && !option.selected) {
       return (
         <tr>
+          <td>{option.name})</td>
           <td className={`correctNotSelected`}>{option.text}</td>
           <td> ❌</td>
         </tr>
@@ -65,6 +67,7 @@ const MultiSelect = (props) => {
     } else if (!option.correct && option.selected) {
       return (
         <tr>
+          <td>{option.name})</td>
           <td className={`incorrectSelected`}>{option.text} </td>
           <td>❌</td>
         </tr>
@@ -72,6 +75,7 @@ const MultiSelect = (props) => {
     } else {
       return (
         <tr>
+          <td>{option.name})</td>
           <td className={`incorrectNotSelected`}>{option.text}</td>
           <td> ✅</td>
         </tr>
@@ -88,21 +92,33 @@ const MultiSelect = (props) => {
       <div className={`break`}></div>
       {!submitted ? (
         <div className={`buttonsMulti`}>
-          {optionsArray.map((option, optionIndex) => {
-            return (
-              <div key={optionIndex}>
-                <label> {option.name} ) </label>
-                <button
-                  className={`${option.selected}`}
-                  onClick={() => {
-                    handleSelect(option, optionIndex);
-                  }}
-                >
-                  {option.text}
-                </button>
-              </div>
-            );
-          })}
+          <table>
+            <thead>
+              <th>Option</th>
+              <th>Your Answer</th>
+              <th>Selected</th>
+            </thead>
+            <tbody>
+              {optionsArray.map((option, optionIndex) => {
+                return (
+                  <tr>
+                    <td> {option.name} ) </td>
+                    <td>
+                      <button
+                        className={`${option.selected}`}
+                        onClick={() => {
+                          handleSelect(option, optionIndex);
+                        }}
+                      >
+                        {option.text}
+                      </button>
+                    </td>
+                    {option.selected ? <td> ✔️</td> : <td></td>}
+                  </tr>
+                );
+              })}
+            </tbody>
+          </table>
           <button
             className={`okBtn`}
             onClick={() => {
@@ -113,9 +129,10 @@ const MultiSelect = (props) => {
           </button>
         </div>
       ) : (
-        <table>
+        <table className={`grades`}>
           <thead>
-            <th>Option (your selections)</th>
+            <th>Option</th>
+            <th>Your Answer</th>
             <th>Correct</th>
           </thead>
           <tbody>
