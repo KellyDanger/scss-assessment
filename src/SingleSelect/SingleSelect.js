@@ -29,21 +29,28 @@ const SingleSelect = (props) => {
       </div>
       <div className={`break`}></div>
       <div className={`buttons`}>
-        {selected === -1 &&
-          props.data.options.map((option, optionIndex) => {
-            return (
-              <div key={optionIndex}>
-                <label> {option.name} ) </label>
-                <button
-                  onClick={() => {
-                    handleSelect(optionIndex);
-                  }}
-                >
-                  {option.text}
-                </button>
-              </div>
-            );
-          })}
+        {selected === -1 && (
+          <table>
+            <tbody>
+              {props.data.options.map((option, optionIndex) => {
+                return (
+                  <tr>
+                    <td> {option.name} ) </td>
+                    <td>
+                      <button
+                        onClick={() => {
+                          handleSelect(optionIndex);
+                        }}
+                      >
+                        {option.text}
+                      </button>
+                    </td>
+                  </tr>
+                );
+              })}
+            </tbody>
+          </table>
+        )}
       </div>
       <div className={`break`}></div>
       {selected > -1 && (
