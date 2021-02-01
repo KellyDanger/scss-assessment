@@ -1,5 +1,5 @@
 import React, { useState } from 'react';
-import ResponseModal from '../ResponseModal/ResponseModal';
+import Response from '../Response/Response.js';
 import './SingleSelect.scss';
 
 const SingleSelect = (props) => {
@@ -54,14 +54,15 @@ const SingleSelect = (props) => {
         >
           <>
             {selectedOption.correct ? (
-              <ResponseModal
+              <Response
                 header={props.data.feedback.correct.header}
                 body={props.data.feedback.correct.body}
                 onComplete={props.onComplete}
               />
             ) : (
-              <ResponseModal
+              <Response
                 header={props.data.feedback.incorrect.header}
+                choice={selectedOption.text}
                 body={props.data.feedback.incorrect.body}
                 onComplete={props.onComplete}
               />
