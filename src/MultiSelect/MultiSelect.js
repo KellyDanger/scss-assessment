@@ -1,4 +1,4 @@
-import React, { useState, useEffect } from 'react';
+import React, { useState } from 'react';
 import './MultiSelect.scss';
 
 // this is a stub for you to develop the following
@@ -18,9 +18,10 @@ import './MultiSelect.scss';
 const MultiSelect = (props) => {
   const [optionsArray, setOptionsArray] = useState(props.data.options);
   const [submitted, setSubmitted] = useState(false);
+  const [headText, setHeadText] = useState(props.data.questionText.header);
+  const [bodyText, setBodyText] = useState(props.data.questionText.body);
 
   const handleSelect = (param, paramIndex) => {
-    console.log('SELECTED', param, paramIndex);
     let selectedArray = [...optionsArray];
     selectedArray[paramIndex].selected = !selectedArray[paramIndex].selected;
     setOptionsArray(selectedArray);
@@ -28,24 +29,61 @@ const MultiSelect = (props) => {
 
   const handleSubmit = () => {
     setSubmitted(true);
+    checkAnswers(optionsArray);
+  };
+
+  const checkAnswers = (array) => {
+    for (let answer of array) {
+      if (
+        (answer.correct && !answer.selected) ||
+        (answer.false && answer.selected)
+      ) {
+        setHeadText(props.data.feedback.incorrect.header);
+        setBodyText(props.data.feedback.incorrect.body);
+        break;
+      } else {
+        setHeadText(props.data.feedback.correct.header);
+        setBodyText(props.data.feedback.correct.body);
+      }
+    }
   };
 
   const renderGrading = (option) => {
     if (option.correct && option.selected) {
-      return <li className={`correctSelected`}>{option.text}</li>;
+      return (
+        <tr>
+          <td className={`correctSelected`}>{option.text}</td> <td>✅</td>
+        </tr>
+      );
     } else if (option.correct && !option.selected) {
-      return <li className={`correctNotSelected`}>{option.text}</li>;
+      return (
+        <tr>
+          <td className={`correctNotSelected`}>{option.text}</td>
+          <td> ❌</td>
+        </tr>
+      );
     } else if (!option.correct && option.selected) {
-      return <li className={`incorrectSelected`}>{option.text}</li>;
+      return (
+        <tr>
+          <td className={`incorrectSelected`}>{option.text} </td>
+          <td>❌</td>
+        </tr>
+      );
     } else {
-      return <li className={`incorrectNotSelected`}>{option.text}</li>;
+      return (
+        <tr>
+          <td className={`incorrectNotSelected`}>{option.text}</td>
+          <td> ✅</td>
+        </tr>
+      );
     }
   };
 
   return (
     <div className={`MultiSelect`}>
       <div className={`questionRow`}>
-        <h1> {props.data.questionText} </h1>
+        <h1> {headText} </h1>
+        <h2>{bodyText}</h2>
       </div>
       <div className={`break`}></div>
       {!submitted ? (
@@ -75,11 +113,17 @@ const MultiSelect = (props) => {
           </button>
         </div>
       ) : (
-        <ul>
-          {optionsArray.map((choice) => {
-            return renderGrading(choice);
-          })}
-        </ul>
+        <table>
+          <thead>
+            <th>Option (your selections)</th>
+            <th>Correct</th>
+          </thead>
+          <tbody>
+            {optionsArray.map((choice) => {
+              return renderGrading(choice);
+            })}
+          </tbody>
+        </table>
       )}
     </div>
   );

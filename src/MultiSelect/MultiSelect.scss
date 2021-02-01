@@ -8,7 +8,9 @@
   align-items: center;
   height: 300px;
   overflow: auto;
-  background-color: #03998d;
+  // background-color: #03998d;
+  background: #41e3a0;
+  background: linear-gradient(315deg, #41e3a0 0%, #03998d 56%);
 }
 .true {
   border: 2px #03998d solid;
@@ -22,18 +24,27 @@
   background-color: #c7c0bd;
   box-shadow: -1rem 1rem 1rem rgba(black, 0.2);
 }
-ul {
-  list-style: none;
-  display: flex;
-  flex-direction: column;
+table {
   width: 50%;
   background-color: #c7c0bd;
   box-shadow: -1rem 1rem 1rem rgba(black, 0.2);
-  padding: 0;
 }
-li {
-  padding: 10px;
+td {
+  padding: 10px 0px 10px 0px;
+  border-bottom: 2px dotted #03998d;
   font-size: larger;
   margin: 2px 2px 0px 2px;
-  border-bottom: 2px solid #03998d63;
+}
+th {
+  border-bottom: 2px solid #ce7d5a;
+  background-color: #ce7d5a63;
+}
+
+.correctSelected {
+  background-color: #7adb0263;
+  border: 3px solid #7adb02;
+}
+.incorrectSelected {
+  background-color: #ff330063;
+  border: 3px solid #ff3300;
 }

@@ -5,11 +5,11 @@
       "questionText": "What is 2 times 3?",
       "feedback": {
         "correct": {
-          "header": "Nice Job.",
-          "body": "You nailed it."
+          "header": "Nice Job!",
+          "body": "You nailed it!"
         },
         "incorrect": {
-          "header": "Not Quite.",
+          "header": "Not Quite",
           "body": "The correct answer was 6."
         }
       },
@@ -35,7 +35,10 @@
     },
     {
       "type": "multi-select",
-      "questionText": "What's 2 divided by 3? Select all that apply.",
+      "questionText": {
+        "header": "What's 2 divided by 3?",
+        "body": "Select all that apply."
+      },
       "feedback": {
         "correct": {
           "header": "Nice Job.",
@@ -43,7 +46,7 @@
         },
         "incorrect": {
           "header": "Not Quite.",
-          "body": "The correct answers were 2/3, .666..., and 1 - 1/3"
+          "body": "The correct answers are: (2/3), (.666...), and (1 - 1/3)"
         }
       },
       "options": [

@@ -1,8 +1,5 @@
 //scss stub for singleselect
-html {
-  background-color: #331202;
-  text-align: center;
-}
+
 .SingleSelect {
   display: flex;
   flex-wrap: wrap;
@@ -12,11 +9,12 @@ html {
   align-items: center;
   height: 300px;
   overflow: auto;
-  background-color: #03998d;
+  background: #41e3a0;
+  background: linear-gradient(315deg, #41e3a0 0%, #03998d 56%);
 }
 
 .questionRow {
-  display: flex;
+  // display: flex;
   width: 50%;
   justify-content: center;
   background-color: #c7c0bd63;
